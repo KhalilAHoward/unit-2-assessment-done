@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <% if (!todos){ %>
+        <p>There are no To Dos yet!</p>
+      <%} else { %> 
+
+    
+      <% todos.forEach(function(t) { %>
+        <li>
+          <%= t.todo %>
+          - 
+          <%= t.done ? 'Done' : 'Not Done' %>
+        </li>
+<%}) %>
+<%} %>
+    </ul>    
+
+<hr><br>
+
+<form action="/" method="POST">
+  <input type="text" name="todo" required>
+  <button type="submit">ADD TO DO</button>
+</form>
